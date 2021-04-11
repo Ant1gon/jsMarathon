@@ -119,18 +119,22 @@ function playerLose(name){
 }
 
 
-let lastTimeAttacked = Math.ceil(Math.random() * 2)
+//let lastTimeAttacked = Math.ceil(Math.random() * 2)
 randButton.addEventListener("click", () => {
+	let dmg = getDmgValue(player2);
+	changeHp(player1, dmg);
+	dmg = getDmgValue(player1);
+	changeHp(player2, dmg);   
 
-    if (lastTimeAttacked == 1) {
-		lastTimeAttacked = 2;
-		let dmg = getDmgValue(player2);
-		changeHp(player1, dmg);
-    } else { 
-    	let dmg = getDmgValue(player1);
-    	lastTimeAttacked = 1;
-		changeHp(player2, dmg);        
-    }
+  //   if (lastTimeAttacked == 1) {
+		// lastTimeAttacked = 2;
+		// let dmg = getDmgValue(player2);
+		// changeHp(player1, dmg);
+  //   } else { 
+  //   	let dmg = getDmgValue(player1);
+  //   	lastTimeAttacked = 1;
+		// changeHp(player2, dmg);        
+  //   }
 })
 
 arena.appendChild(createPlayer(player1));
